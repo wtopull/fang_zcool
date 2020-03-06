@@ -7,7 +7,7 @@ export default {
     { name: "special", title: "活动", path: "/special" },
     { name: "zhengban", title: "正版素材", path: "", href: "https://www.hellorf.com/?utm_source=zcool&utm_medium=index&utm_campaign=navigation&utm_content=all" },
     { name: "course", title: "课程", path: "", href: "https://www.gogoup.com/?utm_source=zcool&utm_medium=navigate" },
-    { name: "more", title: "....", path: "" }
+    { name: "more", title: "...", path: "", href: "" }
   ],
   discoverBoxList: [
     { title: "平面", path: "" },

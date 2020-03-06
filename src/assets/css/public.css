@@ -1,3 +1,48 @@
+.flex {
+  display: flex;
+}
+
+.flex_items {
+  display: flex;
+  align-items: center;
+}
+
+.flex_j {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_a_j {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex_j_start {
+  justify-content: flex-start;
+}
+
+.flex_j_end {
+  justify-content: flex-end;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+.flex_row {
+  flex-direction: row;
+}
+
+.flex_w {
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.j_sb {
+  justify-content: space-between;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +52,16 @@ html,
 body {
   width: 100%;
   height: 100%;
+  color: #282828;
   background: #f4f4f4;
   font: 14px/1.5 "PingFang SC", "Lantinghei SC", "Microsoft YaHei", "HanHei SC", "Helvetica Neue", "Open Sans", Arial, "Hiragino Sans GB", "微软雅黑", STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
 }

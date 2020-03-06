@@ -6,9 +6,17 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '',
+    redirect: '/current'
+  },
+  {
     path: '/',
+    redirect: '/current'
+  },
+  {
+    path: '/current',
     name: 'current',
-    component: Current
+    component: Current,
   },
   {
     path: '/discover',
