@@ -24,6 +24,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .navs {
+  min-width: 1200px;
   width: 100%;
   height: 56px;
   padding: 0 70px;

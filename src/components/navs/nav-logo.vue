@@ -1,6 +1,6 @@
 <template>
   <div class="nav_logo">
-    <img src="static/images/logo.svg" />
+    <img src="@/assets/images/logo.svg" />
   </div>
 </template>
 <script>
