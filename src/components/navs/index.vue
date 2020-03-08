@@ -10,11 +10,6 @@ import navLogo from "./nav-logo";
 import navMenu from "./menu";
 import navRight from "./nav-right";
 export default {
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {},
   components: {
     navLogo,
     navMenu,

@@ -1,6 +1,6 @@
 export default {
   navs: [
-    { name: "current", title: "首页", path: "/" },
+    { name: "current", title: "首页", path: "/current" },
     { name: "discover", title: "发现", path: "/discover" },
     { name: "designer", title: "设计师", path: "/designer" },
     { name: "job", title: "职位", path: "/job" },

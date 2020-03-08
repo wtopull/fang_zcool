@@ -71,8 +71,23 @@ export default {
       navs,
       navIndex: 0,
       hoverIndex: 0,
-      navShow: false
+      navShow: false,
+      pathname: window.location.pathname
     };
+  },
+  watch: {
+    $route(to) {
+      if (this.$route.path === to.path) {
+        this.navs.navs.forEach((item, index) => {
+          if (item.path === to.path) {
+            this.navIndex = index;
+            this.hoverIndex = index;
+          } else {
+            return false;
+          }
+        });
+      }
+    }
   },
   mounted() {
     this.setNavIndex();
@@ -82,23 +97,19 @@ export default {
       let navs = this.navs.navs;
       this.$nextTick(() => {
         navs.forEach((item, index) => {
-          if (item.path === window.location.pathname) {
+          if (item.path === this.pathname) {
             this.navIndex = index;
+            this.hoverIndex = index;
           }
         });
       });
     },
     navPath: function(item, index) {
       this.hoverIndex = index;
-      if (
-        item.path &&
-        this.navIndex !== index &&
-        item.path !== window.location.pathname
-      ) {
+      if (item.path && item.path !== this.$route.path) {
         this.$router.push(item.path);
-        this.navIndex = index;
       } else {
-        item.href ? window.open(item.href) : false;
+        return false;
       }
     }
   },

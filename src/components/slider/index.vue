@@ -105,7 +105,7 @@ export default {
 <style lang="scss" scoped>
 .slider {
   border-radius: 4px;
-  height: 286px;
+  height: 350px;
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
@@ -115,7 +115,7 @@ export default {
   }
   & img {
     width: 1380px;
-    height: 286px;
+    height: 350px;
   }
 }
 .slider_btn {

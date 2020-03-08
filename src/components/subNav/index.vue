@@ -19,14 +19,18 @@ export default {
     return {
       subNavIndex: 0,
       subNav: [
-        { title: "首页推荐", path: "" },
-        { title: "最新发布", path: "" }
+        { title: "首页推荐", path: "/current" },
+        { title: "最新发布", path: "/discover" }
       ]
     };
   },
   methods: {
     subNavPath: function(item, index) {
       this.subNavIndex = index;
+      if (item.path === window.location.pathname) {
+        return false;
+      }
+      this.$router.push(item.path);
     }
   }
 };
