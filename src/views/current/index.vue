@@ -1,12 +1,12 @@
 <template>
-  <div class="current noselec">
+  <div class="current pages noselec">
     <div class="wrapper">
       <f-slider></f-slider>
       <div class="adv mauto">
         <f-advs></f-advs>
       </div>
     </div>
-    <f-sub-nav></f-sub-nav>
+    <f-sub-nav :subNav="subNav" :targetY="679" @subNavPath="subNavPath"></f-sub-nav>
     <div class="work_list_box mauto">
       <div>
         <ul class="flex flex_w flex_r">
@@ -16,6 +16,7 @@
         </ul>
       </div>
     </div>
+    <f-paging :pageNum="workLists.length" :pageIndex="pageIndex" @setPage="setPage"></f-paging>
     <div>
       <f-adv-long :advLongUrl="advLongUrl"></f-adv-long>
       <f-gogoup-adv></f-gogoup-adv>
@@ -28,13 +29,21 @@ import fSubNav from "@/components/subNav/index";
 import fAdvs from "@/components/advs/index";
 import fWorkList from "@/components/work-list/index";
 import workLists from "@/assets/js/workLists";
+import fPaging from "@/components/paging/index";
 import fAdvLong from "@/components/advs/adv-long";
 import fGogoupAdv from "@/components/advs/gogoup-adv";
+import scroll from "@/assets/js/scrollToTop";
 export default {
   data() {
     return {
+      pageIndex: 40,
       adv: [],
+      workLists: workLists,
       lists: [],
+      subNav: [
+        { title: "首页推荐", path: "/current" },
+        { title: "最新发布", path: "/discover" }
+      ],
       advLongUrl: {
         img: "advlong",
         href:
@@ -43,23 +52,44 @@ export default {
     };
   },
   mounted() {
-    this.lists = workLists;
+    this.setLists(0, this.pageIndex);
   },
-  methods: {},
+  methods: {
+    setLists: function(n, m) {
+      this.lists = workLists.slice(n, m);
+    },
+    // 获取当前分页数据
+    setPage: function(n) {
+      const currentY =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      // 调用滚动方法
+      scroll(currentY, 680);
+      this.lists = workLists.slice(
+        (n - 1) * this.pageIndex,
+        this.pageIndex * n
+      );
+    },
+    subNavPath: function(item) {
+      if (item.path === window.location.pathname) {
+        return false;
+      }
+      console.log(item);
+
+      this.$router.push(item.path);
+    }
+  },
   components: {
     fSlider,
     fSubNav,
     fAdvs,
     fWorkList,
+    fPaging,
     fAdvLong,
     fGogoupAdv
   }
 };
 </script>
 <style lang="scss" scoped>
-.current {
-  padding-bottom: 40px;
-}
 .wrapper {
   background: #ffffff;
   padding: 20px 0 24px 0;
@@ -67,19 +97,5 @@ export default {
 }
 .adv {
   height: 210px;
-}
-.work_list_box {
-  padding-top: 20px;
-}
-.card_list {
-  position: relative;
-  background: #fff;
-  width: 260px;
-  height: 345px;
-  border-radius: 4px;
-  margin: 0 20px 20px 0;
-}
-.card_list:nth-child(5n) {
-  margin-right: 0;
 }
 </style>

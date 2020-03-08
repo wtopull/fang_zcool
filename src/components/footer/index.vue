@@ -93,9 +93,6 @@ export default {
 }
 .fotter_b {
   font-size: 12px;
-  & span {
-    margin: 0 20px;
-  }
   .footer_wrapper_middle {
     margin-top: 20px;
     line-height: 21px;
@@ -104,6 +101,9 @@ export default {
       margin-right: 5px;
       margin-top: -2px;
     }
+    & li span {
+      margin: 0 20px;
+    }
     & li:hover {
       color: #999999;
     }
@@ -111,6 +111,9 @@ export default {
   .footer_wrapper_bottom {
     margin-top: 10px;
     line-height: 21px;
+    & li span {
+      margin: 0 20px;
+    }
   }
 }
 </style>

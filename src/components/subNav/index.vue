@@ -1,5 +1,5 @@
 <template>
-  <div class="sub_navs">
+  <div class="sub_navs" :class="{active:visible}">
     <div class="subnav_contentbox mauto">
       <ul class="flex_a_j">
         <li v-for="(item,index) in subNav" :key="index" @click="subNavPath(item,index)">
@@ -15,28 +15,41 @@
 </template>
 <script>
 export default {
+  props: ["subNav", "targetY"],
   data() {
     return {
       subNavIndex: 0,
-      subNav: [
-        { title: "首页推荐", path: "/current" },
-        { title: "最新发布", path: "/discover" }
-      ]
+      visible: false,
+      interval: null
     };
   },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  },
   methods: {
+    handleScroll() {
+      this.visible = window.pageYOffset > this.targetY;
+    },
     subNavPath: function(item, index) {
       this.subNavIndex = index;
-      if (item.path === window.location.pathname) {
-        return false;
-      }
-      this.$router.push(item.path);
+      // if (item.path === window.location.pathname) {
+      //   return false;
+      // }
+      // this.$router.push(item.path);
+      this.$emit("subNavPath", item);
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 .sub_navs {
+  position: relative;
   width: 100%;
   height: 56px;
   background-color: #fff;
@@ -65,5 +78,11 @@ export default {
       }
     }
   }
+}
+.sub_navs.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 </style>

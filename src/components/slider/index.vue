@@ -121,12 +121,12 @@ export default {
 .slider_btn {
   position: absolute;
   top: 50%;
-  width: 62px;
-  height: 62px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
-  margin-top: -31px;
+  margin-top: -26px;
   color: #ffffff;
   background-color: rgba($color: #000000, $alpha: 0.5);
   transition: all 0.3s ease-in-out;

@@ -19,7 +19,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .adv_long {
-  margin-top: 30px;
+  // padding-top: 30px;
   height: 115px;
   border-radius: 4px;
   overflow: hidden;

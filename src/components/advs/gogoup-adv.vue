@@ -82,6 +82,9 @@ export default {
       width: 260px;
       height: 146px;
     }
+    & img:hover {
+      opacity: 0.8;
+    }
     & span {
       display: inline-block;
       width: 100%;
@@ -93,6 +96,9 @@ export default {
     & span:hover {
       color: #d36f16;
     }
+  }
+  & li:last-child {
+    margin-right: 0;
   }
 }
 </style>
