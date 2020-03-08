@@ -19,13 +19,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .adv_long {
-  // padding-top: 30px;
-  height: 115px;
+  height: 145px;
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  & img {
-    object-fit: cover;
-  }
 }
 </style>

@@ -1,11 +1,9 @@
 <template>
-  <div class="adv_box maxwh">
-    <ul class="flex_items j_sb">
-      <li class="adv_items" v-for="(item,index) in lists" :key="index" @click="toPath(item)">
-        <img class="maxwh" :src="item.img" alt />
-      </li>
-    </ul>
-  </div>
+  <ul class="flex_items j_sb">
+    <li class="adv_items" v-for="(item,index) in lists" :key="index" @click="toPath(item)">
+      <img class="maxwh" :src="item.img" alt />
+    </li>
+  </ul>
 </template>
 <script>
 export default {
@@ -58,9 +56,6 @@ export default {
   border-radius: 4px;
   background: #f4f4f4;
   cursor: pointer;
-  & img {
-    object-fit: cover;
-  }
 }
 .adv_items:last-child {
   margin-right: 0;

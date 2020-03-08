@@ -4,7 +4,7 @@
       <div class="discover_advlong">
         <f-adv-long :advLongUrl="advLongUrl"></f-adv-long>
       </div>
-      <f-sub-nav :subNav="subNav" :targetY="336" @subNavPath="subNavPath"></f-sub-nav>
+      <f-sub-nav :subNav="subNav" :targetY="241" @subNavPath="subNavPath"></f-sub-nav>
     </div>
     <div class="work_list_box mauto">
       <div>
@@ -53,6 +53,9 @@ export default {
     };
   },
   mounted() {
+    const currentY =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    scroll(currentY, 0);
     this.setLists(0, this.pageIndex);
   },
   methods: {
@@ -64,7 +67,7 @@ export default {
       const currentY =
         document.documentElement.scrollTop || document.body.scrollTop;
       // 调用滚动方法
-      scroll(currentY, 680);
+      scroll(currentY, 241);
       this.lists = workLists.slice(
         (n - 1) * this.pageIndex,
         this.pageIndex * n

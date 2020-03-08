@@ -6,7 +6,7 @@
         <f-advs></f-advs>
       </div>
     </div>
-    <f-sub-nav :subNav="subNav" :targetY="679" @subNavPath="subNavPath"></f-sub-nav>
+    <f-sub-nav :subNav="subNav" :targetY="681" @subNavPath="subNavPath"></f-sub-nav>
     <div class="work_list_box mauto">
       <div>
         <ul class="flex flex_w flex_r">
@@ -32,7 +32,7 @@ import workLists from "@/assets/js/workLists";
 import fPaging from "@/components/paging/index";
 import fAdvLong from "@/components/advs/adv-long";
 import fGogoupAdv from "@/components/advs/gogoup-adv";
-import scroll from "@/assets/js/scrollToTop";
+import scroll from "@/assets/js/scrollToTop.js";
 export default {
   data() {
     return {
@@ -52,6 +52,9 @@ export default {
     };
   },
   mounted() {
+    const currentY =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    scroll(currentY, 0);
     this.setLists(0, this.pageIndex);
   },
   methods: {
@@ -63,7 +66,7 @@ export default {
       const currentY =
         document.documentElement.scrollTop || document.body.scrollTop;
       // 调用滚动方法
-      scroll(currentY, 680);
+      scroll(currentY, 681);
       this.lists = workLists.slice(
         (n - 1) * this.pageIndex,
         this.pageIndex * n
