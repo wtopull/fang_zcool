@@ -14,13 +14,29 @@
           :class="{'active': navIndex === index,'hoverActive': hoverIndex === index}"
           href="javascript:void(0);"
         >{{item.title}}</a>
+        <div
+          class="menu_pop_discover"
+          v-if="navShow && item.name === 'discover' && hoverIndex === index"
+        >
+          <ul class="menu_pop_discover_t flex_items flex_w">
+            <li
+              class="flex_a_j"
+              v-for="(discover,discoverIndex) in navs.discoverBoxList"
+              :key="discoverIndex"
+            >
+              <span>{{discover.title}}</span>
+            </li>
+          </ul>
+          <ul class="menu_pop_discover_b flex_items">
+            <li v-for="(Check,CheckIndex) in navs.discoverCheck" :key="CheckIndex">
+              {{Check.title}}
+              <a-icon type="right" />
+            </li>
+          </ul>
+        </div>
         <div class="menu_pop" v-if="navShow && item.name === 'job' && hoverIndex === index">
           <ul>
-            <li
-              class="pop_items"
-              v-for="(job,jobIndex) in navs.jobChild"
-              :key="jobIndex"
-            >{{job.title}}</li>
+            <li v-for="(job,jobIndex) in navs.jobChild" :key="jobIndex">{{job.title}}</li>
           </ul>
         </div>
         <div class="menu_pop" v-if="navShow && item.name === 'special' && hoverIndex === index">
@@ -135,6 +151,77 @@ export default {
     background: #282828;
     font-weight: 600;
     color: #ffe300;
+  }
+}
+.menu_pop_discover {
+  position: absolute;
+  left: 0;
+  top: 56px;
+  background: #fff;
+  color: #444;
+  z-index: 14;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  width: 664px;
+  .menu_pop_discover_t {
+    border-bottom: 1px solid #eaeaea;
+    line-height: 0;
+    overflow: hidden;
+    padding: 11px 17px 17px;
+    & li {
+      position: relative;
+      width: 90px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      position: relative;
+
+      cursor: pointer;
+      & span {
+        display: inline-block;
+        text-align: center;
+        min-width: 42px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        padding: 0 7px;
+        margin: 0 6px;
+        border-radius: 4px;
+        color: #444;
+      }
+      & span:hover {
+        background: #ffe300;
+        color: #444;
+      }
+    }
+    & li:nth-child(7n):before {
+      content: "";
+      width: 0;
+      height: 0;
+    }
+    & li:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      height: 14px;
+      width: 1px;
+      background: #ddd;
+    }
+  }
+  .menu_pop_discover_b {
+    padding: 0 30px;
+    line-height: 51px;
+    & li {
+      cursor: pointer;
+      margin-right: 40px;
+      color: #444;
+    }
+    & li:hover {
+      color: #d36f16;
+    }
   }
 }
 </style>

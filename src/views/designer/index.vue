@@ -1,4 +1,5 @@
 <template>
+  <!-- 设计师 -->
   <div class="designer pages">
     <div class="designer_t">
       <f-sub-nav :subNav="subNav" :targetY="56" @subNavPath="subNavPath"></f-sub-nav>

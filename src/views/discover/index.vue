@@ -1,8 +1,12 @@
 <template>
+  <!-- 发现 -->
   <div class="discover pages">
     <div class="discover_t">
       <div class="discover_advlong">
         <f-adv-long :advLongUrl="advLongUrl"></f-adv-long>
+      </div>
+      <div class="discover_nav">
+        <f-discover-nav></f-discover-nav>
       </div>
       <f-sub-nav :subNav="subNav" :targetY="241" @subNavPath="subNavPath"></f-sub-nav>
     </div>
@@ -26,6 +30,7 @@
 import fAdvLong from "@/components/advs/adv-long";
 import fSubNav from "@/components/subNav/index";
 import fWorkList from "@/components/work-list/index";
+import fDiscoverNav from "@/components/navs/discover-nav";
 import fPaging from "@/components/paging/index";
 import fGogoupAdv from "@/components/advs/gogoup-adv";
 import workLists from "@/assets/js/workLists";
@@ -37,7 +42,7 @@ export default {
       workLists: workLists,
       lists: [],
       subNav: [
-        { title: "编辑精选", path: "/" },
+        { title: "编辑精选", path: "/discover" },
         { title: "最新发布", path: "/discover" }
       ],
       advLongUrl: {
@@ -77,20 +82,24 @@ export default {
       if (item.path === window.location.pathname) {
         return false;
       }
-      window.open("https://www.baidu.com");
-      // this.$router.push(item.path);
+      this.$router.push(item.path);
     }
   },
   components: {
     fAdvLong,
     fSubNav,
     fWorkList,
+    fDiscoverNav,
     fPaging,
     fGogoupAdv
   }
 };
 </script>
 <style lang="scss" scoped>
+.discover_nav {
+  position: relative;
+  border-top: 1px solid #eee;
+}
 .discover_t {
   background: #ffffff;
 }
