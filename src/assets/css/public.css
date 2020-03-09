@@ -78,6 +78,40 @@
   margin-right: 0;
 }
 
+.nav_menu_items .menu_pop {
+  left: 0;
+}
+
+.nav_r_box .menu_pop {
+  right: 0;
+}
+
+.menu_pop {
+  position: absolute;
+  top: 56px;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2);
+  color: #444;
+  z-index: 14;
+  padding: 6px 0;
+  width: 152px;
+  font-size: 14px;
+}
+
+.menu_pop li {
+  padding-left: 20px;
+  height: 44px;
+  line-height: 44px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu_pop li:hover {
+  background: #ffe300;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -26,7 +26,6 @@
         <div class="menu_pop" v-if="navShow && item.name === 'special' && hoverIndex === index">
           <ul>
             <li
-              class="special_items"
               v-for="(special,specialIndex) in navs.specialChild"
               :key="specialIndex"
             >{{special.title}}</li>
@@ -35,7 +34,6 @@
         <div class="menu_pop" v-if="navShow && item.name === 'zhengban' && hoverIndex === index">
           <ul>
             <li
-              class="special_items"
               v-for="(zhengban,zhengbanIndex) in navs.zhengbanChild"
               :key="zhengbanIndex"
             >{{zhengban.title}}</li>
@@ -43,20 +41,12 @@
         </div>
         <div class="menu_pop" v-if="navShow && item.name === 'course' && hoverIndex === index">
           <ul>
-            <li
-              class="special_items"
-              v-for="(course,courseIndex) in navs.courseChild"
-              :key="courseIndex"
-            >{{course.title}}</li>
+            <li v-for="(course,courseIndex) in navs.courseChild" :key="courseIndex">{{course.title}}</li>
           </ul>
         </div>
         <div class="menu_pop" v-if="navShow && item.name === 'more' && hoverIndex === index">
           <ul>
-            <li
-              class="special_items"
-              v-for="(more,moreIndex) in navs.moreMenu"
-              :key="moreIndex"
-            >{{more.title}}</li>
+            <li v-for="(more,moreIndex) in navs.moreMenu" :key="moreIndex">{{more.title}}</li>
           </ul>
         </div>
       </li>
@@ -145,28 +135,6 @@ export default {
     background: #282828;
     font-weight: 600;
     color: #ffe300;
-  }
-}
-.menu_pop {
-  position: absolute;
-  left: 0;
-  top: 56px;
-  background: #fff;
-  border-radius: 0 0 4px 4px;
-  -webkit-box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2);
-  color: #444;
-  z-index: 14;
-  padding: 6px 0;
-  width: 152px;
-  li {
-    padding-left: 20px;
-    height: 44px;
-    line-height: 44px;
-    cursor: pointer;
-  }
-  & li:hover {
-    background: #ffe300;
   }
 }
 </style>

@@ -59,5 +59,13 @@ export default {
     { title: "站酷知产", path: "" },
     { title: "站酷APP", path: "" },
     { title: "站酷字库", path: "" },
+  ],
+  userMenu: [
+    { title: "我的关注", path: "" },
+    { title: "我的创作", path: "" },
+    { title: "我的收藏", path: "" },
+    { title: "我的团体", path: "" },
+    { title: "我的简历", path: "" },
+    { title: "资料与账号", path: "" }
   ]
 }
