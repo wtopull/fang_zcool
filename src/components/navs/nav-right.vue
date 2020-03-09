@@ -11,8 +11,7 @@
     </div>
     <div class="nav_r_box" @mouseleave="navShow = false" @mouseover="navShow = true">
       <img src="@/assets/images/user_default.jpg" alt />
-      <div class="menu_pop">
-        <!-- <div class="menu_pop" v-if="navShow"> -->
+      <div class="menu_pop" v-if="navShow">
         <p class="menu_pop_author">阿龙--前端</p>
         <ul>
           <li
