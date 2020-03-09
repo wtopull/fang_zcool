@@ -101,7 +101,7 @@ export default {
 }
 .discover_menu {
   position: absolute;
-  left: 0;
+  left: 12px;
   top: 54px;
   z-index: 14;
   background: #fff;
