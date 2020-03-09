@@ -4,7 +4,7 @@
       <img :src="require(`@/assets/images/${item.img}.jpg`)" alt />
       <span class="card_mark_tip" v-if="!item.tx">正版图片</span>
     </div>
-    <div class="card_author" v-if="showAuthor && item.tx">
+    <!-- <div class="card_author" v-if="showAuthor && item.tx">
       <div class="author_card_box">
         <div class="author_card_topbar flex_items j_sb">
           <div class="flex_items">
@@ -40,7 +40,7 @@
           </span>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="card_info">
       <p class="card_info_title">{{item.title}}</p>
       <p class="card_info_type">{{item.type}}</p>
@@ -60,16 +60,61 @@
       </p>
     </div>
     <div class="card_item flex_items j_sb">
-      <p>
+      <div
+        style="height:50px"
+        class="flex_items"
+        @mouseover="showAuthor = true"
+        @mouseleave="showAuthor = false"
+      >
         <img
+          class="card_item_tx"
           :src="require(`@/assets/images/${item.tx}.jpg`)"
           alt
           v-if="item.tx"
-          @mouseover="showAuthor = true"
-          @mouseleave="showAuthor = false"
         />
         <span class="card_item_name">{{item.username}}</span>
-      </p>
+        <div class="card_author" v-if="showAuthor && item.tx">
+          <div class="author_card_box">
+            <div class="author_card_topbar flex_items j_sb">
+              <div class="flex_items">
+                <img :src="require(`@/assets/images/${item.tx}.jpg`)" alt />
+                <div class="flex flex_column">
+                  <span class="author_card_title">{{item.username}}</span>
+                  <span class="author_card_position">{{item.author.disc}}</span>
+                </div>
+              </div>
+              <div class="flex_a_j">
+                <button class="flex_a_j">关注</button>
+              </div>
+            </div>
+            <div class="author_card_products_box">
+              <ul class="flex_items">
+                <li
+                  v-for="(atx,atxIndex) in item.author.img"
+                  :key="atxIndex"
+                  @click="toProPath(atx)"
+                >
+                  <img :src="require(`@/assets/images/${atx.url}.jpg`)" alt />
+                </li>
+              </ul>
+            </div>
+            <div class="author_card_disc">
+              <span>
+                <a-icon type="picture" />
+                {{item.author.view}}
+              </span>
+              <span>
+                <a-icon type="picture" />
+                {{item.author.comment}}
+              </span>
+              <span>
+                <a-icon type="picture" />
+                {{item.author.recommend}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
       <p class="card_item_time">{{item.time}}</p>
     </div>
   </div>
@@ -103,7 +148,7 @@ export default {
 .card_author {
   position: absolute;
   left: 0;
-  bottom: 50px;
+  bottom: 48px;
   z-index: 14;
   width: 360px;
   height: 196px;
@@ -180,6 +225,8 @@ export default {
   }
 }
 .card_img {
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
   width: 100%;
   position: relative;
   img {
@@ -245,12 +292,9 @@ export default {
 }
 .card_item {
   height: 50px;
-  line-height: 50px;
   padding: 0 16px;
-  & p {
-    margin-bottom: 0;
-  }
-  & img {
+  position: relative;
+  & .card_item_tx {
     border-radius: 50%;
     margin-right: 10px;
     width: 24px;

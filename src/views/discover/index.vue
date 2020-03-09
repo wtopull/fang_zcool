@@ -8,7 +8,7 @@
     </div>
     <div class="work_list_box mauto">
       <div>
-        <ul class="flex flex_w flex_r">
+        <ul class="flex flex_w">
           <li class="card_list" v-for="(item,index) in lists" :key="index">
             <f-work-list :item="item"></f-work-list>
           </li>
