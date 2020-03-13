@@ -1,20 +1,11 @@
 <template>
-  <div class="nav_logo">
+  <div class="nav_logo" @click="$router.push('/')">
     <img src="@/assets/images/logo.svg" />
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {},
-  components: {}
-};
-</script>
 <style lang="scss" scoped>
 .nav_logo {
+  cursor: pointer;
   img {
     width: 120px;
     height: 20px;

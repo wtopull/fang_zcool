@@ -52,12 +52,17 @@
             <li
               v-for="(zhengban,zhengbanIndex) in navs.zhengbanChild"
               :key="zhengbanIndex"
+              @click="toLink(item)"
             >{{zhengban.title}}</li>
           </ul>
         </div>
         <div class="menu_pop" v-if="navShow && item.name === 'course' && hoverIndex === index">
           <ul>
-            <li v-for="(course,courseIndex) in navs.courseChild" :key="courseIndex">{{course.title}}</li>
+            <li
+              v-for="(course,courseIndex) in navs.courseChild"
+              :key="courseIndex"
+              @click="toLink(item)"
+            >{{course.title}}</li>
           </ul>
         </div>
         <div class="menu_pop" v-if="navShow && item.name === 'more' && hoverIndex === index">
@@ -117,6 +122,10 @@ export default {
       } else {
         return false;
       }
+    },
+    // 外部打开链接
+    toLink: function(item) {
+      window.open(item.href);
     }
   },
   components: {}

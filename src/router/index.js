@@ -31,7 +31,25 @@ const routes = [
   {
     path: '/job',
     name: 'job',
-    component: () => import(/* webpackChunkName: "job" */ '../views/job/index.vue')
+    redirect: "/job/",
+    component: () => import(/* webpackChunkName: "job" */ '../views/job/index.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'job',
+        component: () => import(/* webpackChunkName: "job" */ '../views/job/job.vue')
+      },
+      {
+        path: '/job/enterprise',
+        name: 'enterprise',
+        component: () => import(/* webpackChunkName: "enterprise" */ '../views/job/enterprise.vue')
+      },
+      {
+        path: '/job/resumes',
+        name: 'resumes',
+        component: () => import(/* webpackChunkName: "resumes" */ '../views/job/resumes.vue')
+      },
+    ]
   },
   {
     path: '/special',
