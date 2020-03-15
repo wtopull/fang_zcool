@@ -112,6 +112,10 @@
   background: #ffe300;
 }
 
+.mt_20 {
+  margin-top: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;

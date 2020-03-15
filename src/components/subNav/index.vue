@@ -39,8 +39,7 @@ export default {
       navs,
       subNavIndex: 0,
       visible: false,
-      showDiscoverMenu: false,
-      interval: null
+      showDiscoverMenu: false
     };
   },
   mounted() {
@@ -48,9 +47,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
   },
   methods: {
     handleScroll() {

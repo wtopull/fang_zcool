@@ -16,7 +16,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .job_con {
+  position: relative;
   width: 1080px;
-  margin: 40px auto 0;
+  padding: 40px 0;
+  margin: 0 auto;
 }
 </style>
